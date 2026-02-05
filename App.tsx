@@ -1,5 +1,6 @@
 
 import React, { Suspense } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { GridLines } from './components/GridLines';
@@ -54,6 +55,8 @@ export default function App() {
           </div>
         </footer>
       </div>
+      
+      <Analytics />
     </div>
   );
 }
