@@ -1,0 +1,148 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  background: #e4e4e4;
+  color: #121212;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.page-shell {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  background: #f6f6f6;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.ribbon-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.9s ease-out both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollx-shimmer {
+  0% {
+    transform: translateX(-150%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}
+
+.scrollx-bg-path {
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  opacity: 0.75;
+  animation: scrollx-path-draw var(--path-duration, 8s) ease-in-out infinite;
+}
+
+@keyframes scrollx-path-draw {
+  0% {
+    stroke-dashoffset: 900;
+    opacity: 0;
+  }
+  35% {
+    opacity: 0.8;
+  }
+  100% {
+    stroke-dashoffset: -900;
+    opacity: 0;
+  }
+}
+
+.scrollx-meteor {
+  position: absolute;
+  width: 220px;
+  height: 1px;
+  opacity: 0;
+  transform: rotate(20deg);
+  background: linear-gradient(
+    90deg,
+    rgba(99, 102, 241, 0) 0%,
+    rgba(99, 102, 241, 0.55) 40%,
+    rgba(99, 102, 241, 0.9) 100%
+  );
+  animation-name: scrollx-meteor;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes scrollx-meteor {
+  0% {
+    opacity: 0;
+    transform: translateX(-200px) translateY(0) rotate(20deg);
+  }
+  20% {
+    opacity: 0.7;
+  }
+  60% {
+    opacity: 0;
+    transform: translateX(400px) translateY(60px) rotate(20deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(400px) translateY(60px) rotate(20deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .scrollx-shimmer,
+  .scrollx-bg-path,
+  .scrollx-meteor {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    max-width: 100%;
+    border-radius: 0;
+  }
+}
