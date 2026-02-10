@@ -4,7 +4,7 @@ import { SpotlightCard } from './scrollx/SpotlightCard';
 const integrations = [
   {
     name: 'Claude Code',
-    description: 'MCP server + proactive plugin with hook injection',
+    description: 'MCP server + proactive plugin with memory injection hook',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="3" y="5" width="22" height="18" rx="3" stroke="currentColor" strokeWidth="1.4" />
@@ -39,7 +39,7 @@ const integrations = [
   },
   {
     name: 'REST API',
-    description: 'Language-agnostic HTTP endpoints',
+    description: 'Session tokens, staged writes, scene search',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M7 10l-4 4 4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
@@ -155,36 +155,38 @@ export const Integrations: React.FC = () => {
                 <h3 className="text-lg font-semibold text-gray-900">Native protocol, not a wrapper</h3>
               </div>
               <p className="text-sm text-gray-500 leading-relaxed max-w-lg mb-5">
-                Engram exposes 10 tools over the Model Context Protocol. The Claude Code plugin goes further —
-                a UserPromptSubmit hook injects relevant memories into context before the LLM even sees your message.
+                Engram exposes 14 tools over the Model Context Protocol — including staged writes, scene search,
+                and conflict resolution. The Claude Code plugin goes further with a UserPromptSubmit hook that
+                injects relevant memories into context before the LLM even sees your message.
               </p>
               <div className="flex flex-wrap gap-2">
-                <ToolBadge label="add_memory" />
                 <ToolBadge label="search_memory" />
+                <ToolBadge label="propose_write" />
+                <ToolBadge label="search_scenes" />
                 <ToolBadge label="remember" />
                 <ToolBadge label="engram_context" />
-                <ToolBadge label="apply_decay" />
+                <ToolBadge label="resolve_conflict" />
                 <span className="px-2.5 py-1 rounded-md bg-gray-50 text-[11px] font-medium text-gray-400 border border-black/5">
-                  + 5 more
+                  + 8 more
                 </span>
               </div>
             </div>
             <div className="flex-shrink-0 w-full md:w-auto">
               <div className="rounded-xl bg-gray-50 border border-black/5 p-5 text-center md:text-left">
-                <div className="text-4xl font-semibold text-gray-900 mb-1">10</div>
+                <div className="text-4xl font-semibold text-gray-900 mb-1">14</div>
                 <div className="text-xs text-gray-400 uppercase tracking-[0.15em] font-medium mb-3">MCP tools</div>
                 <div className="flex flex-col gap-1.5 text-xs text-gray-500">
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                    Reactive: search, add, update, delete
+                    Retrieval: search, scenes, context
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-                    Proactive: auto-inject via hook
+                    Writes: propose, stage, resolve conflicts
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
-                    Maintenance: decay, stats, context
+                    Lifecycle: decay, stats, remember
                   </div>
                 </div>
               </div>

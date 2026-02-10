@@ -7,13 +7,13 @@ export const CTA: React.FC = () => {
     <div className="w-full">
       <VenomBeam className="flex items-center justify-center w-full flex-col px-6 md:px-12 py-24 text-center">
         <h2 className="text-4xl md:text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.05] text-gray-900 mb-6">
-          Stop re‑explaining.
+          Your agents start
           <br />
-          Start building.
+          with amnesia. Fix that.
         </h2>
         <p className="max-w-2xl mx-auto text-sm md:text-lg text-gray-600 text-center mb-10">
-          pip install, set one API key, run engram‑install. Your agents remember
-          everything that matters in under five minutes.
+          pip install, set one API key, run engram install. Every agent in your stack
+          gets persistent, scoped, human‑like memory in under five minutes.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <AnimatedButton className="bg-black text-white hover:bg-gray-900" glow asChild>

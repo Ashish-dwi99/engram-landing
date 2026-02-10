@@ -29,6 +29,7 @@ export const Navbar: React.FC = () => {
           <a href="#memory-stack" className="hover:text-black transition-colors">Memory Stack</a>
           <a href="#integrations" className="hover:text-black transition-colors">Integrations</a>
           <a href="#mcp" className="hover:text-black transition-colors">MCP</a>
+          <a href="#cloud" className="hover:text-black transition-colors">Cloud</a>
           <a href="/docs/" className="hover:text-black transition-colors">Docs</a>
         </div>
       </div>

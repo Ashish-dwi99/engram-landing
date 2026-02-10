@@ -10,6 +10,7 @@ import { ProofPoints } from './components/ProofPoints';
 import { MemoryStack } from './components/MemoryStack';
 import { Integrations } from './components/Integrations';
 import { CTA } from './components/CTA';
+import { Waitlist } from './components/Waitlist';
 
 export default function App() {
   return (
@@ -44,6 +45,10 @@ export default function App() {
             <Integrations />
           </section>
 
+          <section id="cloud" className="bg-white/92 backdrop-blur-sm border-t border-black/5 py-20">
+            <Waitlist />
+          </section>
+
           <section id="docs" className="bg-[#f7f7fb] py-0">
             <CTA />
           </section>
@@ -51,7 +56,7 @@ export default function App() {
 
         <footer className="py-10 px-6 text-center text-xs text-gray-400 bg-white/85">
           <div className="max-w-6xl mx-auto border-t border-black/5 pt-6">
-            <p>&copy; 2026 Engram. Memory for agent orchestrators.</p>
+            <p>&copy; 2026 Engram. The Personal Memory Kernel for AI Agents.</p>
           </div>
         </footer>
       </div>

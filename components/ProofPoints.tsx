@@ -8,17 +8,17 @@ export const ProofPoints: React.FC = () => {
         value: 45,
         prefix: '~',
         suffix: '%',
-        label: 'less storage vs store‑everything baselines',
+        label: 'less storage via bio‑inspired forgetting',
       },
       {
-        value: 5,
-        suffix: ' paths',
-        label: 'per memory via EchoMem encoding',
+        value: 14,
+        suffix: ' tools',
+        label: 'MCP tools — search, stage, scenes, decay',
       },
       {
-        value: 0,
-        suffix: ' cloud',
-        label: 'required — fully local‑first',
+        value: 76.1,
+        suffix: '%',
+        label: 'Locomo benchmark score vs 68.3% baseline',
       },
     ],
     []
@@ -28,7 +28,7 @@ export const ProofPoints: React.FC = () => {
     <div className="max-w-6xl mx-auto px-6 md:px-12">
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-gray-900">
-          Lean memory. Higher recall.
+          Your memory kernel, by the numbers.
         </h2>
         <p className="text-sm text-gray-500 max-w-sm">
           Benchmarks in docs; results vary by workload.

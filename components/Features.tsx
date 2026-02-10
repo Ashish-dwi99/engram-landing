@@ -24,72 +24,47 @@ export const Features: React.FC = () => {
     <div className="max-w-6xl mx-auto px-6 md:px-12">
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-12 items-end mb-12">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-gray-900">
-          Bio‑inspired memory, not a key‑value store
+          Agents are untrusted. Memory is yours.
         </h2>
         <p className="text-sm text-gray-500 leading-relaxed">
-          Modeled on how human memory actually works: decay, consolidation, and multi‑path recall.
+          Three principles that make Engram a Personal Memory Kernel, not another vector store.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <FeatureCard
-          title="Adaptive Retention (FadeMem)"
-          description="Memories follow an Ebbinghaus decay curve — unused facts fade, frequently accessed ones promote to long‑term storage automatically."
+          title="Staged Writes & Verification"
+          description="Every agent write is a proposal that lands in staging. Invariant checks, conflict detection, and trust scoring run before anything touches long‑term memory. You control what sticks."
           icon={(
             <svg width="38" height="38" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <ellipse cx="20" cy="8" rx="10" ry="3" stroke="currentColor" strokeWidth="1.2" fill="none"/>
-              <ellipse cx="20" cy="14" rx="10" ry="3" stroke="currentColor" strokeWidth="1.2" fill="none"/>
-              <ellipse cx="20" cy="20" rx="10" ry="3" stroke="currentColor" strokeWidth="1.2" fill="none"/>
-              <ellipse cx="20" cy="26" rx="10" ry="3" stroke="currentColor" strokeWidth="1.2" fill="none"/>
-              <ellipse cx="20" cy="32" rx="10" ry="3" stroke="currentColor" strokeWidth="1.2" fill="none"/>
+              <rect x="6" y="6" width="28" height="28" rx="4" stroke="currentColor" strokeWidth="1.2" fill="none"/>
+              <path d="M14 20l4 4 8-8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+              <line x1="6" y1="14" x2="34" y2="14" stroke="currentColor" strokeWidth="0.8" strokeDasharray="2 2"/>
             </svg>
           )}
         />
 
         <FeatureCard
-          title="Echo Encoding (EchoMem)"
-          description="Each memory is encoded as keywords, paraphrases, implications, and question forms — so your agent finds it no matter how the query is phrased."
+          title="Dual Retrieval — Semantic + Episodic"
+          description="Queries run against both a semantic index (facts, entities, categories) and an episodic index (CAST scenes by time/place/topic). Results that match in both get boosted."
           icon={(
             <svg width="38" height="38" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="6" cy="6" r="1.5" fill="currentColor"/>
-              <circle cx="14" cy="6" r="1.5" fill="currentColor"/>
-              <circle cx="22" cy="6" r="1.5" fill="currentColor"/>
-              <circle cx="30" cy="6" r="1.5" fill="currentColor"/>
-              <circle cx="6" cy="14" r="1.5" fill="currentColor"/>
-              <circle cx="14" cy="14" r="1.5" fill="currentColor"/>
-              <circle cx="22" cy="14" r="1.5" fill="currentColor"/>
-              <circle cx="30" cy="14" r="1.5" fill="currentColor"/>
-              <circle cx="6" cy="22" r="1.5" fill="currentColor"/>
-              <circle cx="14" cy="22" r="1.5" fill="currentColor"/>
-              <circle cx="22" cy="22" r="1.5" fill="currentColor"/>
-              <circle cx="30" cy="22" r="1.5" fill="currentColor"/>
-              <circle cx="6" cy="30" r="1.5" fill="currentColor"/>
-              <circle cx="14" cy="30" r="1.5" fill="currentColor"/>
-              <circle cx="22" cy="30" r="1.5" fill="currentColor"/>
-              <circle cx="30" cy="30" r="1.5" fill="currentColor"/>
-              <line x1="6" y1="6" x2="30" y2="30" stroke="currentColor" strokeWidth="0.8" strokeDasharray="2 2"/>
-              <line x1="14" y1="6" x2="30" y2="22" stroke="currentColor" strokeWidth="0.8" strokeDasharray="2 2"/>
-              <line x1="6" y1="14" x2="22" y2="30" stroke="currentColor" strokeWidth="0.8" strokeDasharray="2 2"/>
+              <circle cx="14" cy="20" r="10" stroke="currentColor" strokeWidth="1.2" fill="none"/>
+              <circle cx="26" cy="20" r="10" stroke="currentColor" strokeWidth="1.2" fill="none"/>
+              <ellipse cx="20" cy="20" rx="4" ry="8" fill="currentColor" fillOpacity="0.1"/>
             </svg>
           )}
         />
 
         <FeatureCard
-          title="Scope‑Aware Sharing"
-          description="Memories are scoped by user, agent, connector, or globally — so agents share what they should and isolate what they shouldn't."
+          title="All‑But‑Mask Scoping"
+          description="Out‑of‑scope queries return structure (time, type, importance) but redact details. Agents can schedule and plan without seeing secrets. Trust scores determine write permissions."
           icon={(
             <svg width="38" height="38" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="6" cy="20" r="2" fill="currentColor"/>
-              <circle cx="16" cy="12" r="2" fill="currentColor"/>
-              <circle cx="26" cy="24" r="2" fill="currentColor"/>
-              <circle cx="36" cy="16" r="2" fill="currentColor"/>
-              <line x1="6" y1="20" x2="16" y2="12" stroke="currentColor" strokeWidth="1.2"/>
-              <line x1="16" y1="12" x2="26" y2="24" stroke="currentColor" strokeWidth="1.2"/>
-              <line x1="26" y1="24" x2="36" y2="16" stroke="currentColor" strokeWidth="1.2"/>
-              <path d="M6 30H36" stroke="currentColor" strokeWidth="0.8" strokeDasharray="2 2"/>
-              <path d="M6 34H36" stroke="currentColor" strokeWidth="0.8" strokeDasharray="2 2"/>
-              <path d="M16 12L16 30" stroke="currentColor" strokeWidth="0.6" strokeDasharray="1 2"/>
-              <path d="M26 24L26 30" stroke="currentColor" strokeWidth="0.6" strokeDasharray="1 2"/>
+              <circle cx="20" cy="16" r="6" stroke="currentColor" strokeWidth="1.2" fill="none"/>
+              <path d="M8 34c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="currentColor" strokeWidth="1.2" fill="none"/>
+              <rect x="12" y="13" width="16" height="6" rx="2" fill="currentColor" fillOpacity="0.15"/>
+              <line x1="12" y1="16" x2="28" y2="16" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
             </svg>
           )}
         />

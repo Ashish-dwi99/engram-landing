@@ -5,13 +5,14 @@ export const AgentsIntegration: React.FC = () => {
     <section>
       <h1>Agents Integration</h1>
       <p>
-        Engram is designed for orchestrators and agent swarms. Memory is scoped by user and can be
-        further scoped by agent, category, or team to enable isolation and sharing.
+        Engram is a Personal Memory Kernel designed for multi-agent orchestrators. Memory is scoped
+        by user, with agent-level isolation and cross-agent sharing via scoped retrieval. Agents are
+        treated as untrusted writers — all writes land in staging by default.
       </p>
 
       <h2>Knowledge Isolation</h2>
       <pre className="docs-code">
-        <code>{`# Agent 1 stores knowledge
+        <code>{`# Agent 1 stores knowledge (lands in staging)
 memory.add("Project deadline is Friday", user_id="project_x", agent_id="planner")
 
 # Agent 2 stores different knowledge
@@ -37,6 +38,53 @@ memory.add(
 # Coder agent can access shared knowledge
 results = memory.search("rate limits", user_id="team_alpha")
 # Returns the researcher's finding`}</code>
+      </pre>
+
+      <h2>Agent Trust & Write Permissions</h2>
+      <p>
+        Engram assigns trust scores to agents based on write history. Trust determines how writes
+        are handled:
+      </p>
+      <ul>
+        <li><strong>High-trust agents (&gt;0.85):</strong> Proposals auto-merge into long-term memory.</li>
+        <li><strong>Medium-trust:</strong> Queued for daily digest review.</li>
+        <li><strong>Low-trust:</strong> Require explicit user approval before committing.</li>
+      </ul>
+      <pre className="docs-code">
+        <code>{`# Check agent trust score
+curl "http://localhost:8100/v1/trust?user_id=u123&agent_id=planner"
+
+# Configure auto-merge threshold
+export ENGRAM_V2_TRUST_AUTOMERGE="true"
+export ENGRAM_V2_AUTO_MERGE_TRUST_THRESHOLD="0.85"`}</code>
+      </pre>
+
+      <h2>"All But Mask" Policy</h2>
+      <p>
+        When an agent queries data outside its scope, it sees structure but not details. This lets
+        agents schedule and plan without seeing secrets:
+      </p>
+      <pre className="docs-code">
+        <code>{`{
+  "type": "private_event",
+  "time": "2026-02-10T17:00:00Z",
+  "importance": "high",
+  "details": "[REDACTED]"
+}`}</code>
+      </pre>
+
+      <h2>Staged Writes & Conflict Resolution</h2>
+      <pre className="docs-code">
+        <code>{`# Review pending proposals
+curl "http://localhost:8100/v1/staging/commits?user_id=u123&status=PENDING"
+
+# Approve a staged commit
+curl -X POST http://localhost:8100/v1/staging/commits/<id>/approve
+
+# If a write conflicts with a protected invariant (e.g. user location),
+# both versions are stashed for manual resolution
+curl -X POST http://localhost:8100/v1/staging/conflicts/<stash_id>/resolve \\
+  -d '{"resolution": "ACCEPT_PROPOSED"}'`}</code>
       </pre>
 
       <h2>OpenClaw Shared Memory</h2>
