@@ -11,9 +11,9 @@ export const ProofPoints: React.FC = () => {
         label: 'less storage via bio‑inspired forgetting',
       },
       {
-        value: 14,
-        suffix: ' tools',
-        label: 'MCP tools — search, stage, scenes, decay',
+        value: 0,
+        suffix: ' cold starts',
+        label: 'when switching agents — handoff bus passes full context',
       },
       {
         value: 76.1,

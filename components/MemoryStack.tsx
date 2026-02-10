@@ -19,7 +19,7 @@ export const MemoryStack: React.FC = () => {
           The Memory Kernel Stack
         </h2>
         <p className="text-sm text-gray-500 max-w-sm">
-          Five layers that encode, organize, link, narrate, and forget — modeled on how human memory actually works.
+          Six layers that encode, organize, link, narrate, forget, and hand off — modeled on how human memory actually works.
         </p>
       </div>
 
@@ -43,6 +43,10 @@ export const MemoryStack: React.FC = () => {
         <StackItem
           title="Knowledge Graph — Entity Linking"
           description="Entities are extracted and linked across memories, enabling graph traversal to surface related facts your agent never explicitly searched for."
+        />
+        <StackItem
+          title="Handoff Bus — Cross‑Agent Continuity"
+          description="When an agent pauses — rate limit, crash, tool switch — it saves a session digest: task, decisions, files touched, TODOs, blockers. Next agent calls get_last_session and continues where the last one stopped. Zero re‑explanation."
         />
       </div>
     </div>

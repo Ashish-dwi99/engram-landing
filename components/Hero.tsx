@@ -11,13 +11,13 @@ export const Hero: React.FC = () => {
             Personal Memory Kernel for AI Agents
           </p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] text-gray-900 mb-6 text-center">
-            One memory store.
+            Switch agents.
             <br />
-            Every agent, personalized.
+            Keep the context.
           </h1>
           <p className="text-sm md:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10 text-center">
-            A user-owned memory kernel any agent can plug into.
-            Scoped reads, staged writes, biological forgetting.
+            Hit a rate limit in Claude Code? Open Codex — it already knows what you were doing.
+            One memory kernel. Shared across every agent.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <AnimatedButton className="bg-black text-white hover:bg-gray-900" glow asChild>
@@ -31,7 +31,7 @@ export const Hero: React.FC = () => {
             </a>
           </div>
           <p className="mt-10 text-xs text-gray-400">
-            100% free, forever. Bring your own API key. MCP‑native for Claude Code, Cursor, and Codex.
+            Open source. Local-first. Bring your own API key. MCP‑native for Claude Code, Cursor, and Codex.
           </p>
         </div>
       </BackgroundMeteors>
