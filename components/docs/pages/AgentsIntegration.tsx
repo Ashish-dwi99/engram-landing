@@ -5,9 +5,9 @@ export const AgentsIntegration: React.FC = () => {
     <section>
       <h1>Agents Integration</h1>
       <p>
-        Engram is a Personal Memory Kernel designed for multi-agent orchestrators. Memory is scoped
-        by user, with agent-level isolation and cross-agent sharing via scoped retrieval. Agents are
-        treated as untrusted writers — all writes land in staging by default.
+        Engram is a Personal Memory Kernel designed for multi-agent workflows. Switch from Claude Code
+        to Codex mid-task — the new agent picks up where you left off. Memory is shared across agents
+        with scoped retrieval, staged writes, and automatic session handoff.
       </p>
 
       <h2>Knowledge Isolation</h2>
@@ -85,6 +85,31 @@ curl -X POST http://localhost:8100/v1/staging/commits/<id>/approve
 # both versions are stashed for manual resolution
 curl -X POST http://localhost:8100/v1/staging/conflicts/<stash_id>/resolve \\
   -d '{"resolution": "ACCEPT_PROPOSED"}'`}</code>
+      </pre>
+
+      <h2>Cross-Agent Handoff</h2>
+      <p>
+        When you switch agents — rate limit, crash, or just switching tools — Engram preserves the
+        full working context. No re-explaining. No copy-pasting file paths.
+      </p>
+      <pre className="docs-code">
+        <code>{`# Claude Code hits rate limit mid-refactor, saves context automatically:
+# save_session_digest({
+#   task_summary: "Migrating auth to JWT",
+#   decisions_made: ["short-lived tokens", "middleware chain"],
+#   files_touched: ["auth.py", "middleware.py", "routes.py"],
+#   todos_remaining: ["update tests", "add refresh endpoint"],
+#   blockers: []
+# })
+
+# You open Codex. It calls get_last_session and sees everything:
+# → task, decisions, files, TODOs
+# → Continues from where Claude Code stopped
+
+# REST API equivalent:
+curl -X POST http://localhost:8100/v1/handoff/resume \\
+  -H "Authorization: Bearer <TOKEN>" \\
+  -d '{"user_id":"u123","agent_id":"codex","repo_path":"/my-project"}'`}</code>
       </pre>
 
       <h2>OpenClaw Shared Memory</h2>

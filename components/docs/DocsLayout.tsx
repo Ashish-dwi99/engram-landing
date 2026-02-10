@@ -103,7 +103,7 @@ export const DocsLayout: React.FC<{
         <main className="docs-content">
           {children}
           <div className="docs-footer">
-            Built for AI agents that need to remember what matters.
+            Switch agents without losing context. Stop re-explaining yourself.
           </div>
         </main>
       </div>

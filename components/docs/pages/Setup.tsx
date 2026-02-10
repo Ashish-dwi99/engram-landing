@@ -61,6 +61,20 @@ results = memory.search("rate limits", user_id="team_alpha")`}</code>
 # Interactive docs at /docs`}</code>
       </pre>
 
+      <h2>Cross-Agent Handoff</h2>
+      <p>
+        When you switch agents mid-task, Engram preserves the working context automatically.
+        This is configured out of the box by <code>engram install</code>.
+      </p>
+      <pre className="docs-code">
+        <code>{`# Claude Code saves context when it pauses (automatic via CLAUDE.md rules):
+# save_session_digest(task="migrating auth", files=["auth.py"], ...)
+
+# When you open Codex, it loads the context (automatic via AGENTS.md rules):
+# get_last_session(repo="/my-project")
+# → Sees task, decisions, files touched, remaining TODOs`}</code>
+      </pre>
+
       <div className="callout tip">
         Tip: Run <code>engram status</code> to check version, installed integrations, and database stats.
       </div>

@@ -5,9 +5,9 @@ export const McpServer: React.FC = () => {
     <section>
       <h1>MCP Server</h1>
       <p>
-        Engram ships as an MCP server with 14 tools out of the box — including staged writes,
-        episodic scene search, and conflict resolution. The Claude Code plugin adds proactive
-        memory injection before the LLM sees your message.
+        Engram ships as an MCP server with 16+ tools out of the box — staged writes,
+        episodic scene search, conflict resolution, and cross-agent session handoff. The Claude Code
+        plugin adds proactive memory injection and session digest loading before the LLM sees your message.
       </p>
 
       <h2>Automatic Installation</h2>
@@ -179,6 +179,21 @@ GEMINI_API_KEY = "your-api-key"`}</code>
             <td>search_scenes / get_scene</td>
             <td>Episodic CAST scene retrieval with masking</td>
             <td>Retrieval</td>
+          </tr>
+          <tr>
+            <td>save_session_digest</td>
+            <td>Save handoff context when pausing or switching agents</td>
+            <td>Handoff</td>
+          </tr>
+          <tr>
+            <td>get_last_session</td>
+            <td>Load session context from the last active agent</td>
+            <td>Handoff</td>
+          </tr>
+          <tr>
+            <td>list_sessions</td>
+            <td>Browse handoff history across agents</td>
+            <td>Handoff</td>
           </tr>
         </tbody>
       </table>

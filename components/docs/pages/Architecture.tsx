@@ -5,9 +5,9 @@ export const Architecture: React.FC = () => {
     <section>
       <h1>Architecture</h1>
       <p>
-        Engram is a Personal Memory Kernel (PMK) — not just a vector store with an API. It has
-        opinions about how memory should work: agents are untrusted writers, memory has a lifecycle,
-        and scoping is mandatory.
+        Engram is a Personal Memory Kernel (PMK) — not just a vector store with an API. It solves
+        four problems: switching agents kills your momentum, nobody forgets, agents write with no oversight,
+        and memory is just "find similar text." Built on FadeMem and CAST research papers.
       </p>
 
       <div className="docs-diagram">
@@ -159,6 +159,22 @@ export const Architecture: React.FC = () => {
         <li>Entities extracted from memories and linked across the graph.</li>
         <li>Graph traversal surfaces related facts the agent never explicitly searched for.</li>
       </ul>
+
+      <h3>Handoff Bus — Cross-Agent Continuity</h3>
+      <ul>
+        <li>When an agent pauses — rate limit, crash, tool switch — it saves a session digest.</li>
+        <li>Digest includes: task summary, decisions made, files touched, remaining TODOs, blockers.</li>
+        <li>Next agent calls <code>get_last_session</code> and gets the full context. Zero re-explanation.</li>
+        <li>Supports lane-based checkpointing for long-running tasks across multiple agents.</li>
+      </ul>
+      <pre className="docs-code">
+        <code>{`Claude Code (rate limited)
+  → save_session_digest(task, decisions, files, todos, blockers)
+
+Codex (picks up)
+  → get_last_session(repo="/my-project")
+  → Gets full context, continues where Claude Code stopped`}</code>
+      </pre>
     </section>
   );
 };

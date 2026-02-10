@@ -80,6 +80,24 @@ curl -X POST http://localhost:8100/v1/sleep/run \\
   -d '{"user_id": "u123", "apply_decay": true, "cleanup_stale_refs": true}'`}</code>
       </pre>
 
+      <h3>Cross-Agent Handoff</h3>
+      <pre className="docs-code">
+        <code>{`# Auto-resume: load context from last agent session
+curl -X POST http://localhost:8100/v1/handoff/resume \\
+  -H "Authorization: Bearer <TOKEN>" \\
+  -H "Content-Type: application/json" \\
+  -d '{"user_id":"u123","agent_id":"codex","repo_path":"/my-project","objective":"continue latest task"}'
+
+# Save a checkpoint (agent pausing work)
+curl -X POST http://localhost:8100/v1/handoff/checkpoint \\
+  -H "Authorization: Bearer <TOKEN>" \\
+  -H "Content-Type: application/json" \\
+  -d '{"user_id":"u123","agent_id":"claude-code","repo_path":"/my-project","task_summary":"migrating auth to JWT"}'
+
+# List active lanes
+curl "http://localhost:8100/v1/handoff/lanes?user_id=u123"`}</code>
+      </pre>
+
       <h3>Legacy Endpoints</h3>
       <pre className="docs-code">
         <code>{`# Get all memories

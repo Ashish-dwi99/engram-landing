@@ -5,54 +5,57 @@ export const Introduction: React.FC = () => {
     <section>
       <h1>Engram Documentation</h1>
       <p>
-        Engram is a Personal Memory Kernel (PMK) for AI agents. It's a user-owned memory store that
-        any agent can plug into to become instantly personalized. Agents read via scoped retrieval and
-        can only propose writes into staging until the user approves.
+        Engram is a Personal Memory Kernel (PMK) for AI agents. Hit a rate limit in Claude Code?
+        Open Codex — it already knows what you were doing. One memory kernel shared across every agent,
+        with bio-inspired forgetting, staged writes, and episodic recall.
       </p>
+      <div className="callout note">
+        <strong>Early-stage software</strong> — not recommended for production use. APIs may change. Use at your own risk.
+      </div>
       <div className="callout tip">
-        100% free, forever. No Pro tier, no usage limits, no license keys. Bring your own API key
-        (Gemini, OpenAI, or Ollama). Everything runs locally by default.
+        Open source, local-first. Bring your own API key
+        (Gemini, OpenAI, or Ollama for fully offline). Everything runs on 127.0.0.1:8100 by default.
       </div>
 
-      <h2>Why Engram</h2>
+      <h2>Four Problems Nobody Else Is Solving</h2>
       <table className="docs-table">
         <thead>
           <tr>
-            <th>Capability</th>
+            <th>Problem</th>
             <th>Other Memory Layers</th>
             <th>Engram</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Bio-inspired forgetting</td>
-            <td>No</td>
-            <td>Ebbinghaus decay curve</td>
+            <td><strong>Switching agents = cold start</strong></td>
+            <td>Manual copy/paste context</td>
+            <td>Handoff bus — session digests, auto-resume</td>
           </tr>
           <tr>
-            <td>Untrusted agent writes</td>
+            <td><strong>Nobody forgets</strong></td>
+            <td>Store everything forever</td>
+            <td>Ebbinghaus decay curve, ~45% less storage</td>
+          </tr>
+          <tr>
+            <td><strong>Agents write with no oversight</strong></td>
             <td>Store directly</td>
-            <td>Staging + verification + conflict stash</td>
+            <td>Staging + verification + trust scoring</td>
           </tr>
           <tr>
-            <td>Episodic narrative memory</td>
-            <td>No</td>
+            <td><strong>No episodic memory</strong></td>
+            <td>Vector search only</td>
             <td>CAST scenes (time/place/topic)</td>
           </tr>
           <tr>
             <td>Multi-modal encoding</td>
-            <td>Rare</td>
+            <td>Single embedding</td>
             <td>5 retrieval paths (EchoMem)</td>
           </tr>
           <tr>
             <td>Cross-agent sharing</td>
             <td>Per-agent silos</td>
-            <td>Scoped retrieval with masking</td>
-          </tr>
-          <tr>
-            <td>Knowledge graph</td>
-            <td>Sometimes</td>
-            <td>Entity extraction + linking</td>
+            <td>Scoped retrieval with all-but-mask privacy</td>
           </tr>
           <tr>
             <td>Reference-aware decay</td>
@@ -60,14 +63,9 @@ export const Introduction: React.FC = () => {
             <td>If other agents use it, don't delete it</td>
           </tr>
           <tr>
-            <td>Hybrid search</td>
-            <td>Vector only</td>
-            <td>Semantic + keyword + episodic</td>
-          </tr>
-          <tr>
-            <td>Storage efficiency</td>
-            <td>Store everything</td>
-            <td>~45% less</td>
+            <td>Knowledge graph</td>
+            <td>Sometimes</td>
+            <td>Entity extraction + linking</td>
           </tr>
           <tr>
             <td>MCP + REST</td>
@@ -84,8 +82,9 @@ export const Introduction: React.FC = () => {
 
       <h2>Core Principles</h2>
       <ul>
-        <li><strong>Agents are untrusted writers.</strong> Every write is a proposal that lands in staging. Trusted agents can auto-merge; others wait for approval.</li>
+        <li><strong>Switching agents shouldn't mean starting over.</strong> When an agent pauses — rate limit, crash, tool switch — it saves a session digest. The next agent loads it and continues. Zero re-explanation.</li>
         <li><strong>Memory has a lifecycle.</strong> New memories start short-term (SML), promote to long-term (LML) through access, and fade via Ebbinghaus decay if unused.</li>
+        <li><strong>Agents are untrusted writers.</strong> Every write is a proposal that lands in staging. Trusted agents can auto-merge; others wait for approval.</li>
         <li><strong>Scoping is mandatory.</strong> Every memory is scoped by user. Out-of-scope queries see structure but not details ("all but mask").</li>
         <li><strong>Dual retrieval.</strong> Queries run semantic + episodic indexes in parallel. Results matching both get boosted.</li>
         <li><strong>Reference-aware forgetting.</strong> If other agents still use a memory, it won't be garbage collected.</li>
