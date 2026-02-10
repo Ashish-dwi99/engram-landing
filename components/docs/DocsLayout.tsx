@@ -49,7 +49,7 @@ export const DocsLayout: React.FC<{
   return (
     <div className="docs-page">
       <header className="docs-header">
-        <a className="docs-logo" href="/">
+        <a className="docs-logo" href="/docs/">
           <svg
             width="18"
             height="18"
@@ -75,7 +75,7 @@ export const DocsLayout: React.FC<{
           >
             GitHub
           </a>
-          <a className="docs-cta" href="/docs/">View docs</a>
+          <a className="docs-cta" href="/">Back to Engram</a>
         </div>
       </header>
 
