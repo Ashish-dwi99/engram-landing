@@ -27,7 +27,7 @@ const PATHS = [
   "M1000 500 V580 H1120",
 ];
 
-const NODE_COLORS = ["#34d399", "#60a5fa", "#a78bfa"];
+const NODE_COLORS = ["#34d399", "#60a5fa", "#f59e0b"];
 
 const NODES: NodePoint[] = [
   { x: 80, y: 90, color: NODE_COLORS[0] },
@@ -84,7 +84,7 @@ export const BackgroundPaths: React.FC<BackgroundPathsProps> = ({
           <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="rgba(16, 185, 129, 0.6)" />
             <stop offset="50%" stopColor="rgba(59, 130, 246, 0.75)" />
-            <stop offset="100%" stopColor="rgba(168, 85, 247, 0.7)" />
+            <stop offset="100%" stopColor="rgba(245, 158, 11, 0.7)" />
           </linearGradient>
           <filter id={glowId} x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="3" result="coloredBlur" />

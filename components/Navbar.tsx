@@ -5,23 +5,21 @@ export const Navbar: React.FC = () => {
   return (
     <nav className="w-full h-[72px] px-6 md:px-12 flex items-center justify-between sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-black/5">
       <div className="flex items-center gap-10">
-        <a href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <div className="flex items-center justify-center">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 32 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <line x1="5" y1="6" x2="26" y2="6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-              <line x1="9" y1="11" x2="29" y2="11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-              <line x1="6" y1="16" x2="22" y2="16" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-              <line x1="10" y1="21" x2="30" y2="21" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-              <line x1="4" y1="26" x2="20" y2="26" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-            </svg>
-          </div>
-          <span className="font-semibold text-xs tracking-[0.3em] uppercase text-gray-700">Engram</span>
+        <a href="/" className="flex items-center hover:opacity-80 transition-opacity">
+          <span
+            className="font-bold tracking-[-0.025em]"
+            style={{
+              fontSize: '1.75rem',
+              lineHeight: '2rem',
+              fontFamily: "'Space Grotesk', sans-serif",
+              background: 'linear-gradient(135deg, #e8722a 0%, #e85d45 30%, #d4607a 60%, #ff8a2b 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            engram
+          </span>
         </a>
 
         <div className="hidden md:flex items-center gap-6 text-[11px] font-medium text-gray-500 tracking-[0.12em] uppercase">

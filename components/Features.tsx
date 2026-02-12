@@ -20,17 +20,27 @@ export const Features: React.FC = () => {
     <div className="max-w-6xl mx-auto px-6 md:px-12">
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-12 items-end mb-12">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-gray-900">
-          Four problems nobody else is solving.
+          Four problems{' '}
+          <span
+            style={{
+              background: 'linear-gradient(135deg, #e8722a 0%, #e85d45 30%, #d4607a 60%, #ff8a2b 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            nobody else is solving.
+          </span>
         </h2>
         <p className="text-sm text-gray-500 leading-relaxed">
-          Built on FadeMem and CAST — the neuroscience papers that actually explain how memory should work.
+          Built on FadeMem (Ebbinghaus decay), CLS Distillation (sleep consolidation), and Benna-Fusi multi‑trace dynamics.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <FeatureCard
-          title="Nobody Forgets"
-          description="Every memory layer hoards forever. Your context fills with stale facts from months ago. Engram uses the Ebbinghaus decay curve — important stuff gets reinforced, junk fades. 45% less storage, better retrieval."
+          title="Memory That Forgets Like You Do"
+          description="Ebbinghaus decay curve, multi-timescale Benna-Fusi traces, and CLS sleep-cycle consolidation. Short-term memories fade fast; important ones promote to long-term. Homeostatic normalization prevents runaway strength. Reference-aware GC won't prune memories other agents still use."
           icon={(
             <svg width="38" height="38" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8 32 Q12 10 20 18 Q28 26 32 8" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinecap="round"/>
@@ -41,8 +51,8 @@ export const Features: React.FC = () => {
         />
 
         <FeatureCard
-          title="Agents Write With No Oversight"
-          description="Connect an agent to a memory layer and it writes whatever it wants. No staging, no approval. Engram treats every write as a proposal. Invariant checks, conflict detection, trust scoring — agents earn merge rights over time."
+          title="Staged Writes + Trust Scoring"
+          description="Every agent write is a proposal, not a commit. Invariant checks, conflict detection, and a per-agent trust score that gates merge rights. Agents earn autonomy over time. Policy gateway lets you clamp capabilities, namespaces, and confidentiality scopes per agent."
           icon={(
             <svg width="38" height="38" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="6" y="6" width="28" height="28" rx="4" stroke="currentColor" strokeWidth="1.2" fill="none"/>
@@ -53,8 +63,8 @@ export const Features: React.FC = () => {
         />
 
         <FeatureCard
-          title="Memory Is Just 'Find Similar Text'"
-          description="You're looking for 'that debugging session last Tuesday' — an episode, not a keyword match. Engram clusters interactions into CAST scenes by time, place, and topic. Dual retrieval boosts results that match both semantically and episodically."
+          title="Active + Passive Dual Architecture"
+          description="Passive memory is semantic search and episodic scenes. Active memory is a real-time signal bus — state, events, and directives with TTL tiers. Agents broadcast what they're doing right now. Intent-aware routing picks the right retrieval path automatically."
           icon={(
             <svg width="38" height="38" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="14" cy="20" r="10" stroke="currentColor" strokeWidth="1.2" fill="none"/>
@@ -65,8 +75,8 @@ export const Features: React.FC = () => {
         />
 
         <FeatureCard
-          title="Switching Agents Kills Your Momentum"
-          description="Hit a rate limit in Claude Code? Your terminal crashes? You switch to Codex or Cursor and start from zero. Engram's handoff bus saves session digests — decisions, files touched, TODOs. Next agent loads the context and continues where you left off."
+          title="Zero-Context Agent Handoff"
+          description="Agent crashes, hits a rate limit, or you just switch tools. Engram's handoff bus saves a full session digest — task, decisions, files touched, TODOs, blockers. Next agent calls get_last_session and picks up exactly where the last one stopped."
           icon={(
             <svg width="38" height="38" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8 20h8m0 0l-3-3m3 3l-3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>

@@ -49,7 +49,7 @@ export default function VenomBeam({ className, children }: VenomBeamProps) {
 
     const drawFrame = (time: number) => {
       const { width, height } = canvas.getBoundingClientRect();
-      ctx.fillStyle = "rgba(245, 246, 252, 0.22)";
+      ctx.fillStyle = "rgba(252, 248, 244, 0.22)";
       ctx.fillRect(0, 0, width, height);
       ctx.globalCompositeOperation = "lighter";
 
@@ -70,7 +70,7 @@ export default function VenomBeam({ className, children }: VenomBeamProps) {
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < maxDistance) {
             const alpha = (1 - dist / maxDistance) * 0.28;
-            ctx.strokeStyle = `rgba(126, 137, 190, ${alpha})`;
+            ctx.strokeStyle = `rgba(232, 114, 42, ${alpha})`;
             ctx.lineWidth = 0.7;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -81,9 +81,9 @@ export default function VenomBeam({ className, children }: VenomBeamProps) {
       }
 
       nodes.forEach((node) => {
-        ctx.fillStyle = "rgba(120, 130, 190, 0.85)";
+        ctx.fillStyle = "rgba(232, 93, 69, 0.85)";
         ctx.shadowBlur = 12;
-        ctx.shadowColor = "rgba(150, 170, 230, 0.45)";
+        ctx.shadowColor = "rgba(232, 114, 42, 0.45)";
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
         ctx.fill();
@@ -97,11 +97,11 @@ export default function VenomBeam({ className, children }: VenomBeamProps) {
 
     const drawStatic = () => {
       const { width, height } = canvas.getBoundingClientRect();
-      ctx.fillStyle = "#f7f7fb";
+      ctx.fillStyle = "#fdf8f5";
       ctx.fillRect(0, 0, width, height);
 
       nodes.forEach((node) => {
-        ctx.fillStyle = "rgba(120, 130, 190, 0.85)";
+        ctx.fillStyle = "rgba(232, 93, 69, 0.85)";
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
         ctx.fill();
@@ -123,7 +123,7 @@ export default function VenomBeam({ className, children }: VenomBeamProps) {
       };
     }
 
-    ctx.fillStyle = "#f7f7fb";
+    ctx.fillStyle = "#fdf8f5";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     animationId = requestAnimationFrame(drawFrame);
@@ -136,7 +136,7 @@ export default function VenomBeam({ className, children }: VenomBeamProps) {
   }, [prefersReducedMotion]);
 
   return (
-    <div className="relative w-full overflow-hidden bg-[#f7f7fb]">
+    <div className="relative w-full overflow-hidden bg-[#fdf8f5]">
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.9),transparent_40%)]" />
       <div className={cn("relative z-10", className)}>{children}</div>

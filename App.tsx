@@ -29,9 +29,9 @@ export default function App() {
         <main className="relative">
           <Hero />
 
-          <section className="bg-white/75 backdrop-blur-sm border-t border-black/5 py-16">
+          {/* <section className="bg-white/75 backdrop-blur-sm border-t border-black/5 py-16">
             <ProofPoints />
-          </section>
+          </section> */}
 
           <section className="bg-white/80 backdrop-blur-sm border-t border-black/5 py-20">
             <Features />
@@ -49,14 +49,14 @@ export default function App() {
             <Waitlist />
           </section>
 
-          <section id="docs" className="bg-[#f7f7fb] py-0">
+          <section id="docs" className="bg-[#fdf8f5] py-0">
             <CTA />
           </section>
         </main>
 
         <footer className="py-10 px-6 text-center text-xs text-gray-400 bg-white/85">
           <div className="max-w-6xl mx-auto border-t border-black/5 pt-6">
-            <p>&copy; 2026 Engram. The Personal Memory Kernel for AI Agents.</p>
+            <p>&copy; 2026 Engram. The Memory Kernel for AI Agents.</p>
           </div>
         </footer>
       </div>

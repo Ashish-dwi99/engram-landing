@@ -27,11 +27,20 @@ export const Waitlist: React.FC = () => {
         Coming Soon
       </p>
       <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 mb-4">
-        Hosted Cloud
+        <span
+          style={{
+            background: 'linear-gradient(135deg, #e8722a 0%, #e85d45 30%, #d4607a 60%, #ff8a2b 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}
+        >
+          Hosted Cloud
+        </span>
       </h2>
       <p className="text-sm md:text-base text-gray-500 max-w-xl mx-auto mb-8">
-        Zero setup. Sync across devices. Team dashboards. All the power of
-        Engram without managing infrastructure.
+        Zero setup. Sync across devices. Team dashboards and memory analytics.
+        All 32 MCP tools + REST API — without managing infrastructure or API keys.
       </p>
 
       {submitted ? (

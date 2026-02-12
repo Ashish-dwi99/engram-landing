@@ -4,7 +4,7 @@ import { SpotlightCard } from './scrollx/SpotlightCard';
 const integrations = [
   {
     name: 'Claude Code',
-    description: 'MCP server + plugin with memory injection and session handoff',
+    description: 'MCP server + plugin with UserPromptSubmit hook and session handoff',
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="3" y="5" width="22" height="18" rx="3" stroke="currentColor" strokeWidth="1.4" />
@@ -49,6 +49,18 @@ const integrations = [
     ),
   },
   {
+    name: 'Claude Desktop',
+    description: 'Native MCP integration — memory in every conversation',
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="4" width="20" height="15" rx="2.5" stroke="currentColor" strokeWidth="1.3" />
+        <line x1="10" y1="19" x2="10" y2="22" stroke="currentColor" strokeWidth="1.2" />
+        <line x1="18" y1="19" x2="18" y2="22" stroke="currentColor" strokeWidth="1.2" />
+        <line x1="8" y1="22" x2="20" y2="22" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
     name: 'OpenClaw',
     description: 'Shared memory across agent swarms',
     icon: (
@@ -76,16 +88,26 @@ export const Integrations: React.FC = () => {
       {/* Header */}
       <div className="text-center mb-14">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-gray-900 mb-4">
-          One install. Every agent remembers.
+          One install.{' '}
+          <span
+            style={{
+              background: 'linear-gradient(135deg, #e8722a 0%, #e85d45 30%, #d4607a 60%, #ff8a2b 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            Every agent remembers.
+          </span>
         </h2>
         <p className="text-sm text-gray-500 leading-relaxed max-w-lg mx-auto">
           Run <code className="px-1.5 py-0.5 rounded bg-gray-100 text-gray-700 text-xs font-mono">engram-install</code> and
-          Engram auto-configures itself for every tool in your stack.
+          Engram auto-configures MCP servers, hooks, and plugins for every tool in your stack.
         </p>
       </div>
 
       {/* Integration cards grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
         {integrations.map((item) => (
           <SpotlightCard
             key={item.name}
@@ -113,12 +135,12 @@ export const Integrations: React.FC = () => {
           <div className="text-gray-500">
             <span className="text-green-400">$</span>{' '}
             <span className="text-gray-200">pip install</span>{' '}
-            <span className="text-blue-300">"engram[all]"</span>
+            <span className="text-blue-300">"engram-memory[all]"</span>
           </div>
           <div className="text-gray-500">
             <span className="text-green-400">$</span>{' '}
             <span className="text-gray-200">export</span>{' '}
-            <span className="text-purple-300">GEMINI_API_KEY</span>
+            <span className="text-amber-300">GEMINI_API_KEY</span>
             <span className="text-gray-400">=</span>
             <span className="text-amber-300">"your-key"</span>
           </div>
@@ -127,7 +149,7 @@ export const Integrations: React.FC = () => {
             <span className="text-gray-200">engram-install</span>
           </div>
           <div className="mt-3 text-gray-500 text-xs leading-relaxed">
-            <span className="text-gray-600">{'>'}</span> Configured Claude Code <span className="text-green-400/70">✓</span>
+            <span className="text-gray-600">{'>'}</span> Configured Claude Code (MCP + plugin) <span className="text-green-400/70">✓</span>
             <br />
             <span className="text-gray-600">{'>'}</span> Configured Claude Desktop <span className="text-green-400/70">✓</span>
             <br />
@@ -135,7 +157,9 @@ export const Integrations: React.FC = () => {
             <br />
             <span className="text-gray-600">{'>'}</span> Configured OpenAI Codex <span className="text-green-400/70">✓</span>
             <br />
-            <span className="text-gray-600">{'>'}</span> Deployed Claude Code plugin <span className="text-green-400/70">✓</span>
+            <span className="text-gray-600">{'>'}</span> Configured OpenClaw <span className="text-green-400/70">✓</span>
+            <br />
+            <span className="text-gray-600">{'>'}</span> Started REST API on :8100 <span className="text-green-400/70">✓</span>
           </div>
         </div>
       </div>
@@ -155,43 +179,44 @@ export const Integrations: React.FC = () => {
                 <h3 className="text-lg font-semibold text-gray-900">Native protocol, not a wrapper</h3>
               </div>
               <p className="text-sm text-gray-500 leading-relaxed max-w-lg mb-5">
-                Engram exposes 16+ tools over the Model Context Protocol — staged writes, scene search,
-                conflict resolution, and session handoff. The Claude Code plugin goes further with a UserPromptSubmit hook that
-                injects relevant memories and the last session digest into context before the LLM even sees your message.
+                32 tools over the Model Context Protocol — semantic search, signal bus, episodic scenes, character profiles,
+                staged writes, trust scoring, policy gateway, and session handoff. The Claude Code plugin adds a UserPromptSubmit hook
+                that injects relevant memories and session context before the LLM sees your message.
               </p>
               <div className="flex flex-wrap gap-2">
                 <ToolBadge label="search_memory" />
-                <ToolBadge label="propose_write" />
+                <ToolBadge label="signal_write" />
+                <ToolBadge label="signal_read" />
                 <ToolBadge label="search_scenes" />
+                <ToolBadge label="propose_write" />
                 <ToolBadge label="save_session_digest" />
-                <ToolBadge label="get_last_session" />
-                <ToolBadge label="remember" />
-                <ToolBadge label="engram_context" />
+                <ToolBadge label="run_sleep_cycle" />
+                <ToolBadge label="get_agent_trust" />
                 <span className="px-2.5 py-1 rounded-md bg-gray-50 text-[11px] font-medium text-gray-400 border border-black/5">
-                  + 9 more
+                  + 24 more
                 </span>
               </div>
             </div>
             <div className="flex-shrink-0 w-full md:w-auto">
               <div className="rounded-xl bg-gray-50 border border-black/5 p-5 text-center md:text-left">
-                <div className="text-4xl font-semibold text-gray-900 mb-1">16+</div>
+                <div className="text-4xl font-semibold text-gray-900 mb-1">32</div>
                 <div className="text-xs text-gray-400 uppercase tracking-[0.15em] font-medium mb-3">MCP tools</div>
                 <div className="flex flex-col gap-1.5 text-xs text-gray-500">
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-                    Retrieval: search, scenes, context
+                    Retrieval: search, scenes, profiles, context
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-                    Writes: propose, stage, resolve conflicts
+                    Writes: propose, stage, resolve, trust
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                    Handoff: save digest, resume session
+                    Signals: state, events, directives, clear
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
-                    Lifecycle: decay, stats, remember
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-400" />
+                    Lifecycle: decay, sleep cycle, handoff, policy
                   </div>
                 </div>
               </div>

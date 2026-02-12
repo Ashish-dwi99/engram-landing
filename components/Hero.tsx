@@ -8,16 +8,25 @@ export const Hero: React.FC = () => {
       <BackgroundMeteors className="min-h-[70vh] flex items-center justify-center px-6 md:px-12 pt-24 pb-24 text-center">
         <div className="max-w-4xl w-full mx-auto flex flex-col items-center">
           <p className="text-[11px] uppercase tracking-[0.35em] text-gray-400 mb-6 text-center">
-            Personal Memory Kernel for AI Agents
+            The Memory Kernel for AI Agents
           </p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] text-gray-900 mb-6 text-center">
-            Switch agents.
+            Agents that remember.
             <br />
-            Keep the context.
+            <span
+              style={{
+                background: 'linear-gradient(135deg, #e8722a 0%, #e85d45 30%, #d4607a 60%, #ff8a2b 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Agents that forget.
+            </span>
           </h1>
           <p className="text-sm md:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10 text-center">
-            Hit a rate limit in Claude Code? Open Codex — it already knows what you were doing.
-            One memory kernel. Shared across every agent.
+            The memory kernel that decays what doesn't matter, consolidates what does,
+            and hands off context when you switch tools. One install — every agent in your stack shares one brain.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <AnimatedButton className="bg-black text-white hover:bg-gray-900" glow asChild>
@@ -31,7 +40,7 @@ export const Hero: React.FC = () => {
             </a>
           </div>
           <p className="mt-10 text-xs text-gray-400">
-            Open source. Local-first. Bring your own API key. MCP‑native for Claude Code, Cursor, and Codex.
+            Open source. Local-first.
           </p>
         </div>
       </BackgroundMeteors>

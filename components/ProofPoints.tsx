@@ -5,20 +5,19 @@ export const ProofPoints: React.FC = () => {
   const stats = React.useMemo(
     () => [
       {
-        value: 45,
-        prefix: '~',
-        suffix: '%',
-        label: 'less storage via bio‑inspired forgetting',
+        value: 32,
+        suffix: '',
+        label: 'MCP tools — retrieval, writes, handoff, decay, signals, profiles',
       },
       {
-        value: 0,
-        suffix: ' cold starts',
-        label: 'when switching agents — handoff bus passes full context',
+        value: 44,
+        suffix: '+',
+        label: 'REST API endpoints with session auth and staged writes',
       },
       {
         value: 76.1,
         suffix: '%',
-        label: 'Locomo benchmark score vs 68.3% baseline',
+        label: 'LoCoMo benchmark — vs 68.3% baseline (arXiv 2601.18642)',
       },
     ],
     []
@@ -28,7 +27,17 @@ export const ProofPoints: React.FC = () => {
     <div className="max-w-6xl mx-auto px-6 md:px-12">
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
         <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-gray-900">
-          Your memory kernel, by the numbers.
+          Your memory kernel,{' '}
+          <span
+            style={{
+              background: 'linear-gradient(135deg, #e8722a 0%, #e85d45 30%, #d4607a 60%, #ff8a2b 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            by the numbers.
+          </span>
         </h2>
         <p className="text-sm text-gray-500 max-w-sm">
           Benchmarks in docs; results vary by workload.

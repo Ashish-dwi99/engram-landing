@@ -9,12 +9,20 @@ export const CTA: React.FC = () => {
         <h2 className="text-4xl md:text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.05] text-gray-900 mb-6">
           Stop re-explaining yourself
           <br />
-          to every agent.
+          <span
+            style={{
+              background: 'linear-gradient(135deg, #e8722a 0%, #e85d45 30%, #d4607a 60%, #ff8a2b 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            to every agent.
+          </span>
         </h2>
         <p className="max-w-2xl mx-auto text-sm md:text-lg text-gray-600 text-center mb-10">
-          pip install, set one API key, run engram install. Every agent in your stack
-          shares one memory — with bio‑inspired forgetting, staged writes, and seamless handoff
-          when you switch tools.
+          <code className="px-1.5 py-0.5 rounded bg-gray-100 text-gray-700 text-xs font-mono">pip install engram-memory[all]</code> — set one API key, run engram‑install.
+          32 MCP tools. 44+ REST endpoints. Bio‑inspired decay. Staged writes. Cross‑agent handoff. One memory kernel for your entire stack.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <AnimatedButton className="bg-black text-white hover:bg-gray-900" glow asChild>

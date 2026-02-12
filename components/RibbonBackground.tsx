@@ -12,9 +12,9 @@ const Ribbon = () => {
     return {
       uniforms: {
         uTime: { value: 0 },
-        uColorA: { value: new THREE.Color('#ff2aa6') }, // Hot magenta
-        uColorB: { value: new THREE.Color('#6a22ff') }, // Electric violet
-        uColorC: { value: new THREE.Color('#2c7bff') }, // Vivid blue
+        uColorA: { value: new THREE.Color('#e8722a') }, // Burnt orange
+        uColorB: { value: new THREE.Color('#e85d45') }, // Warm coral
+        uColorC: { value: new THREE.Color('#f59e0b') }, // Warm amber
         uColorD: { value: new THREE.Color('#ff8a2b') }, // Bright orange
       },
       vertexShader: `
