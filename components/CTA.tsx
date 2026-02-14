@@ -22,7 +22,8 @@ export const CTA: React.FC = () => {
         </h2>
         <p className="max-w-2xl mx-auto text-sm md:text-lg text-gray-600 text-center mb-10">
           <code className="px-1.5 py-0.5 rounded bg-gray-100 text-gray-700 text-xs font-mono">pip install engram-memory[all]</code> — set one API key, run engram‑install.
-          32 MCP tools. 44+ REST endpoints. Bio‑inspired decay. Staged writes. Cross‑agent handoff. One memory kernel for your entire stack.
+          {' '}<code className="px-1.5 py-0.5 rounded bg-gray-100 text-gray-700 text-xs font-mono">pip install engram-bridge[web]</code> for the dashboard.
+          32 MCP tools. Automatic routing. Bio‑inspired decay. Staged writes. Cross‑agent handoff. One memory kernel for your entire stack.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <AnimatedButton className="bg-black text-white hover:bg-gray-900" glow asChild>

@@ -161,6 +161,27 @@ export const Integrations: React.FC = () => {
             <br />
             <span className="text-gray-600">{'>'}</span> Started REST API on :8100 <span className="text-green-400/70">✓</span>
           </div>
+          <div className="mt-5 pt-4 border-t border-white/10">
+            <div className="text-gray-500">
+              <span className="text-green-400">$</span>{' '}
+              <span className="text-gray-200">pip install -e</span>{' '}
+              <span className="text-blue-300">"./engram-bridge[web,orchestrator]"</span>
+            </div>
+            <div className="text-gray-500">
+              <span className="text-green-400">$</span>{' '}
+              <span className="text-gray-200">engram-bridge</span>{' '}
+              <span className="text-amber-300">--channel web</span>
+            </div>
+            <div className="mt-3 text-gray-500 text-xs leading-relaxed">
+              <span className="text-gray-600">{'>'}</span> Dashboard at http://127.0.0.1:8200 <span className="text-green-400/70">✓</span>
+              <br />
+              <span className="text-gray-600">{'>'}</span> Coordination layer enabled <span className="text-green-400/70">✓</span>
+              <br />
+              <span className="text-gray-600">{'>'}</span> Registered claude-code (python, typescript, debugging) <span className="text-green-400/70">✓</span>
+              <br />
+              <span className="text-gray-600">{'>'}</span> Registered codex (javascript, scaffolding) <span className="text-green-400/70">✓</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -197,7 +218,7 @@ export const Integrations: React.FC = () => {
                 </span>
               </div>
             </div>
-            <div className="flex-shrink-0 w-full md:w-auto">
+            <div className="flex-shrink-0 w-full md:w-auto flex flex-col gap-4">
               <div className="rounded-xl bg-gray-50 border border-black/5 p-5 text-center md:text-left">
                 <div className="text-4xl font-semibold text-gray-900 mb-1">32</div>
                 <div className="text-xs text-gray-400 uppercase tracking-[0.15em] font-medium mb-3">MCP tools</div>
@@ -217,6 +238,24 @@ export const Integrations: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-orange-400" />
                     Lifecycle: decay, sleep cycle, handoff, policy
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-xl bg-gray-50 border border-black/5 p-5 text-center md:text-left">
+                <div className="text-4xl font-semibold text-gray-900 mb-1">7</div>
+                <div className="text-xs text-gray-400 uppercase tracking-[0.15em] font-medium mb-3">REST endpoints</div>
+                <div className="flex flex-col gap-1.5 text-xs text-gray-500">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                    Agents: list, register, match
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                    Routing: route, batch, claim
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                    Events: audit log
                   </div>
                 </div>
               </div>

@@ -24,6 +24,7 @@ export const Navbar: React.FC = () => {
 
         <div className="hidden md:flex items-center gap-6 text-[11px] font-medium text-gray-500 tracking-[0.12em] uppercase">
           <a href="#platform" className="hover:text-black transition-colors">Platform</a>
+          <a href="#dashboard" className="hover:text-black transition-colors">Dashboard</a>
           <a href="#memory-stack" className="hover:text-black transition-colors">Memory Stack</a>
           <a href="#integrations" className="hover:text-black transition-colors">Integrations</a>
           <a href="#mcp" className="hover:text-black transition-colors">MCP</a>

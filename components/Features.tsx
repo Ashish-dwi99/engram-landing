@@ -51,13 +51,18 @@ export const Features: React.FC = () => {
         />
 
         <FeatureCard
-          title="Staged Writes + Trust Scoring"
-          description="Every agent write is a proposal, not a commit. Invariant checks, conflict detection, and a per-agent trust score that gates merge rights. Agents earn autonomy over time. Policy gateway lets you clamp capabilities, namespaces, and confidentiality scopes per agent."
+          title="Memory-as-Orchestrator"
+          description="Agent capabilities are stored as memories. When a task arrives, Engram semantically matches it to the best available agent — no YAML routing, no manual assignment. The same Memory.search() that retrieves conversations also routes tasks."
           icon={(
             <svg width="38" height="38" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="6" y="6" width="28" height="28" rx="4" stroke="currentColor" strokeWidth="1.2" fill="none"/>
-              <path d="M14 20l4 4 8-8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-              <line x1="6" y1="14" x2="34" y2="14" stroke="currentColor" strokeWidth="0.8" strokeDasharray="2 2"/>
+              <circle cx="20" cy="10" r="3.5" stroke="currentColor" strokeWidth="1.2" fill="none"/>
+              <circle cx="10" cy="30" r="3.5" stroke="currentColor" strokeWidth="1.2" fill="none"/>
+              <circle cx="30" cy="30" r="3.5" stroke="currentColor" strokeWidth="1.2" fill="none"/>
+              <path d="M20 13.5L10 26.5" stroke="currentColor" strokeWidth="1.2"/>
+              <path d="M20 13.5L30 26.5" stroke="currentColor" strokeWidth="1.2"/>
+              <path d="M13.5 30L26.5 30" stroke="currentColor" strokeWidth="1.2"/>
+              <path d="M17 11L12 27" stroke="currentColor" strokeWidth="0.6" strokeDasharray="2 2" opacity="0.4"/>
+              <path d="M23 11L28 27" stroke="currentColor" strokeWidth="0.6" strokeDasharray="2 2" opacity="0.4"/>
             </svg>
           )}
         />

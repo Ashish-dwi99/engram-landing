@@ -9,6 +9,7 @@ import { RibbonBackground } from './components/RibbonBackground';
 import { ProofPoints } from './components/ProofPoints';
 import { MemoryStack } from './components/MemoryStack';
 import { Integrations } from './components/Integrations';
+import { Dashboard } from './components/Dashboard';
 import { CTA } from './components/CTA';
 import { Waitlist } from './components/Waitlist';
 
@@ -37,6 +38,10 @@ export default function App() {
             <Features />
           </section>
 
+          <section id="dashboard" className="bg-white/82 backdrop-blur-sm border-t border-black/5 py-20">
+            <Dashboard />
+          </section>
+
           <section id="memory-stack" className="bg-white/85 backdrop-blur-sm border-t border-black/5 py-20">
             <MemoryStack />
           </section>
@@ -56,7 +61,7 @@ export default function App() {
 
         <footer className="py-10 px-6 text-center text-xs text-gray-400 bg-white/85">
           <div className="max-w-6xl mx-auto border-t border-black/5 pt-6">
-            <p>&copy; 2026 Engram. The Memory Kernel for AI Agents.</p>
+            <p>&copy; 2026 Engram. The Personal Memory Kernel for AI Agents.</p>
           </div>
         </footer>
       </div>

@@ -29,7 +29,7 @@ export const MemoryStack: React.FC = () => {
           </span>
         </h2>
         <p className="text-sm text-gray-500 max-w-sm">
-          Six layers — decay, consolidation, episodic scenes, active signals, trust-gated writes, and cross‑agent handoff. Modeled on neuroscience, built for agents.
+          Seven layers — decay, consolidation, episodic scenes, active signals, orchestration, trust-gated writes, and cross‑agent handoff. Modeled on neuroscience, built for agents.
         </p>
       </div>
 
@@ -49,6 +49,10 @@ export const MemoryStack: React.FC = () => {
         <StackItem
           title="Active Memory — Signal Bus"
           description="Real‑time state, events, and directives with TTL tiers (noise → notable → critical → permanent). Agents broadcast what they're doing right now. Read active signals ordered by priority. Intent‑aware routing picks retrieval path automatically."
+        />
+        <StackItem
+          title="Orchestrator — Semantic Task Routing"
+          description="Agents register capabilities as memories. Tasks auto-route via semantic search over capability memories. CAS claim/release prevents conflicts. Coordination events are themselves memories — a searchable audit trail."
         />
         <StackItem
           title="Policy Gateway — Trust & Access Control"
