@@ -5,94 +5,118 @@ export const Introduction: React.FC = () => {
     <section>
       <h1>Engram Documentation</h1>
       <p>
-        Engram is a Personal Memory Kernel (PMK) for AI agents. Hit a rate limit in Claude Code?
-        Open Codex — it already knows what you were doing. One memory kernel shared across every agent,
-        with bio-inspired forgetting, staged writes, and episodic recall.
+        Engram is a memory and orchestration platform for AI agents. Your agents remember context
+        across sessions, coordinate on shared tasks, and hand off work seamlessly — all from a
+        local-first dashboard or programmatic API.
       </p>
       <div className="callout note">
-        <strong>Early-stage software</strong> — not recommended for production use. APIs may change. Use at your own risk.
-      </div>
-      <div className="callout tip">
-        Open source, local-first. Bring your own API key
-        (Gemini, OpenAI, or Ollama for fully offline). Everything runs on 127.0.0.1:8100 by default.
+        <strong>Early-stage software</strong> — APIs may change. Use at your own risk.
       </div>
 
-      <h2>Four Problems Nobody Else Is Solving</h2>
+      <h2>How It Works</h2>
+      <div className="docs-diagram">
+        <svg viewBox="0 0 700 220" role="img" aria-label="Engram 3-layer architecture">
+          <defs>
+            <linearGradient id="introStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#4b6cff" />
+              <stop offset="100%" stopColor="#37d7b2" />
+            </linearGradient>
+          </defs>
+
+          {/* Agents layer */}
+          <rect x="50" y="20" width="600" height="45" rx="10" fill="#ffffff" stroke="url(#introStroke)" strokeWidth="2" />
+          <text x="350" y="48" textAnchor="middle" fontSize="14" fontFamily="Space Grotesk, sans-serif" fill="#1a1a1a">
+            Agents (Claude Code, Cursor, Codex, Custom)
+          </text>
+
+          {/* Arrows */}
+          <line x1="200" y1="65" x2="200" y2="95" stroke="#9ca3af" strokeWidth="1.5" />
+          <line x1="350" y1="65" x2="350" y2="95" stroke="#9ca3af" strokeWidth="1.5" />
+          <line x1="500" y1="65" x2="500" y2="95" stroke="#9ca3af" strokeWidth="1.5" />
+
+          {/* Bridge layer */}
+          <rect x="50" y="95" width="600" height="45" rx="10" fill="#f0f0ff" stroke="#8b8bdb" strokeWidth="1.5" />
+          <text x="350" y="123" textAnchor="middle" fontSize="14" fontFamily="Space Grotesk, sans-serif" fill="#1a1a1a">
+            engram-bridge (Dashboard, Task Router, Agent Registry)
+          </text>
+
+          {/* Arrows */}
+          <line x1="200" y1="140" x2="200" y2="170" stroke="#9ca3af" strokeWidth="1.5" />
+          <line x1="350" y1="140" x2="350" y2="170" stroke="#9ca3af" strokeWidth="1.5" />
+          <line x1="500" y1="140" x2="500" y2="170" stroke="#9ca3af" strokeWidth="1.5" />
+
+          {/* Memory layer */}
+          <rect x="50" y="170" width="600" height="45" rx="10" fill="#ffffff" stroke="url(#introStroke)" strokeWidth="2" />
+          <text x="350" y="198" textAnchor="middle" fontSize="14" fontFamily="Space Grotesk, sans-serif" fill="#1a1a1a">
+            Memory Kernel (FadeMem, EchoMem, CategoryMem, Knowledge Graph)
+          </text>
+        </svg>
+      </div>
+
+      <h2>Two Ways to Use Engram</h2>
+      <table className="docs-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Use the Dashboard</th>
+            <th>Build with the SDK</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>For</strong></td>
+            <td>Teams managing agent tasks visually</td>
+            <td>Developers integrating memory into agents</td>
+          </tr>
+          <tr>
+            <td><strong>Start here</strong></td>
+            <td><a href="/docs/quickstart/">Quickstart</a> &rarr; <a href="/docs/dashboard/">Dashboard Overview</a></td>
+            <td><a href="/docs/quickstart/">Quickstart</a> &rarr; <a href="/docs/sdk/">Python SDK</a></td>
+          </tr>
+          <tr>
+            <td><strong>Key pages</strong></td>
+            <td><a href="/docs/task-board/">Task Board</a>, <a href="/docs/coordination/">Coordination</a>, <a href="/docs/agent-chat/">Agent Chat</a></td>
+            <td><a href="/docs/rest-api/">REST API</a>, <a href="/docs/mcp-server/">MCP Server</a>, <a href="/docs/handoff/">Agent Handoff</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>What Makes Engram Different</h2>
       <table className="docs-table">
         <thead>
           <tr>
             <th>Problem</th>
-            <th>Other Memory Layers</th>
+            <th>Other Tools</th>
             <th>Engram</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>Switching agents = cold start</strong></td>
-            <td>Manual copy/paste context</td>
-            <td>Handoff bus — session digests, auto-resume</td>
+            <td>Manual copy/paste</td>
+            <td>Session digests + auto-resume</td>
           </tr>
           <tr>
-            <td><strong>Nobody forgets</strong></td>
-            <td>Store everything forever</td>
-            <td>Ebbinghaus decay curve, ~45% less storage</td>
+            <td><strong>Memory grows forever</strong></td>
+            <td>Store everything</td>
+            <td>Ebbinghaus decay, ~45% less storage</td>
           </tr>
           <tr>
-            <td><strong>Agents write with no oversight</strong></td>
-            <td>Store directly</td>
-            <td>Staging + verification + trust scoring</td>
+            <td><strong>No task orchestration</strong></td>
+            <td>External tools</td>
+            <td>Built-in task board + agent routing</td>
           </tr>
           <tr>
-            <td><strong>No episodic memory</strong></td>
+            <td><strong>No episodic recall</strong></td>
             <td>Vector search only</td>
-            <td>CAST scenes (time/place/topic)</td>
-          </tr>
-          <tr>
-            <td>Multi-modal encoding</td>
-            <td>Single embedding</td>
-            <td>5 retrieval paths (EchoMem)</td>
-          </tr>
-          <tr>
-            <td>Cross-agent sharing</td>
-            <td>Per-agent silos</td>
-            <td>Scoped retrieval with all-but-mask privacy</td>
-          </tr>
-          <tr>
-            <td>Reference-aware decay</td>
-            <td>No</td>
-            <td>If other agents use it, don't delete it</td>
-          </tr>
-          <tr>
-            <td>Knowledge graph</td>
-            <td>Sometimes</td>
-            <td>Entity extraction + linking</td>
-          </tr>
-          <tr>
-            <td>MCP + REST</td>
-            <td>One or the other</td>
-            <td>Both, plug-and-play</td>
-          </tr>
-          <tr>
-            <td>Self-hosted</td>
-            <td>Cloud-first</td>
-            <td>Local-first (127.0.0.1:8100)</td>
+            <td>CAST scenes (time, place, topic)</td>
           </tr>
         </tbody>
       </table>
 
-      <h2>Core Principles</h2>
-      <ul>
-        <li><strong>Switching agents shouldn't mean starting over.</strong> When an agent pauses — rate limit, crash, tool switch — it saves a session digest. The next agent loads it and continues. Zero re-explanation.</li>
-        <li><strong>Memory has a lifecycle.</strong> New memories start short-term (SML), promote to long-term (LML) through access, and fade via Ebbinghaus decay if unused.</li>
-        <li><strong>Agents are untrusted writers.</strong> Every write is a proposal that lands in staging. Trusted agents can auto-merge; others wait for approval.</li>
-        <li><strong>Scoping is mandatory.</strong> Every memory is scoped by user. Out-of-scope queries see structure but not details ("all but mask").</li>
-        <li><strong>Dual retrieval.</strong> Queries run semantic + episodic indexes in parallel. Results matching both get boosted.</li>
-        <li><strong>Reference-aware forgetting.</strong> If other agents still use a memory, it won't be garbage collected.</li>
-      </ul>
-
       <div className="callout tip">
-        Start with <strong>Installation</strong> and <strong>Setup</strong> to go from zero to
-        working memory in minutes.
+        <strong>Ready to start?</strong> The <a href="/docs/quickstart/">Quickstart</a> gets you from zero to
+        a running dashboard in under 3 minutes.
       </div>
     </section>
   );

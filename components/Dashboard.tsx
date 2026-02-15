@@ -68,27 +68,11 @@ export const Dashboard: React.FC = () => {
         </div>
       </SpotlightCard>
 
-      {/* Demo video */}
+      {/* Quick start prompt */}
       <div className="mt-10 mb-2">
         <p className="text-center text-xs font-medium text-gray-400 uppercase tracking-widest mb-4">
-          See it in action
+          Get started in 30 seconds
         </p>
-        <SpotlightCard
-          spotlightColor="255, 255, 255"
-          className="rounded-2xl border border-black/5 bg-white shadow-[0_12px_30px_rgba(0,0,0,0.05)] overflow-hidden"
-        >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            poster="/demo/demo-poster.jpg"
-            className="w-full h-full object-cover"
-          >
-            <source src="/demo/demo.mp4" type="video/mp4" />
-            <source src="/demo/demo.webm" type="video/webm" />
-          </video>
-        </SpotlightCard>
       </div>
 
       {/* Install snippet */}

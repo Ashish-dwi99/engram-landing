@@ -5,10 +5,10 @@ export const Research: React.FC = () => {
     <section>
       <h1>Research</h1>
       <p>
-        Engram is built on two papers that address how AI memory should actually work:
+        Engram is built on two research papers that address how AI memory should actually work:
       </p>
       <p>
-        <strong>FadeMem: Biologically‑Inspired Forgetting for Efficient Agent Memory</strong> — {' '}
+        <strong>FadeMem: Biologically-Inspired Forgetting for Efficient Agent Memory</strong> — {' '}
         <a href="https://arxiv.org/abs/2601.18642" target="_blank" rel="noreferrer">
           arXiv:2601.18642
         </a>
@@ -49,13 +49,49 @@ export const Research: React.FC = () => {
       </table>
 
       <h2>Biological Inspiration</h2>
-      <ul>
-        <li>Ebbinghaus Forgetting Curve → Exponential decay</li>
-        <li>Spaced Repetition → Access boosts strength</li>
-        <li>Sleep Consolidation → SML → LML promotion</li>
-        <li>Production Effect → Echo encoding improves retention</li>
-        <li>Elaborative Encoding → Deeper processing = stronger memory</li>
-      </ul>
+      <table className="docs-table">
+        <thead>
+          <tr>
+            <th>Neuroscience Concept</th>
+            <th>Engram Implementation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ebbinghaus Forgetting Curve</td>
+            <td>Exponential decay in <a href="/docs/fadem/">FadeMem</a></td>
+          </tr>
+          <tr>
+            <td>Spaced Repetition</td>
+            <td>Access boosts memory strength</td>
+          </tr>
+          <tr>
+            <td>Sleep Consolidation</td>
+            <td>SML → LML promotion during sleep cycles</td>
+          </tr>
+          <tr>
+            <td>Production Effect</td>
+            <td>Echo encoding improves retention in <a href="/docs/fadem/">EchoMem</a></td>
+          </tr>
+          <tr>
+            <td>Elaborative Encoding</td>
+            <td>Deeper processing = stronger memory (importance-based depth)</td>
+          </tr>
+          <tr>
+            <td>Episodic Memory</td>
+            <td>CAST <a href="/docs/scenes/">scene formation</a> by time, place, topic</td>
+          </tr>
+          <tr>
+            <td>Complementary Learning Systems</td>
+            <td>CLS distillation for multi-session consolidation</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div className="callout tip">
+        For implementation details, see <a href="/docs/fadem/">FadeMem &amp; Decay</a>,
+        <a href="/docs/scenes/">Episodic Scenes</a>, and <a href="/docs/how-memory-works/">How Memory Works</a>.
+      </div>
     </section>
   );
 };

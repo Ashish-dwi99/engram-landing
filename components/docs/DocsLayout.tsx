@@ -16,28 +16,44 @@ const navGroups: NavGroup[] = [
     title: 'Getting Started',
     items: [
       { label: 'Introduction', href: '/docs/', key: 'introduction' },
-      { label: 'Installation', href: '/docs/installation/', key: 'installation' },
-      { label: 'Setup', href: '/docs/setup/', key: 'setup' },
+      { label: 'Quickstart', href: '/docs/quickstart/', key: 'quickstart' },
     ],
   },
   {
-    title: 'Integrations',
+    title: 'Use the Dashboard',
     items: [
+      { label: 'Dashboard Overview', href: '/docs/dashboard/', key: 'dashboard' },
+      { label: 'Task Board', href: '/docs/task-board/', key: 'task-board' },
+      { label: 'Agent Chat', href: '/docs/agent-chat/', key: 'agent-chat' },
+      { label: 'Coordination', href: '/docs/coordination/', key: 'coordination' },
+      { label: 'Memory Inspector', href: '/docs/memory-inspector/', key: 'memory-inspector' },
+    ],
+  },
+  {
+    title: 'Build with Engram',
+    items: [
+      { label: 'Python SDK', href: '/docs/sdk/', key: 'sdk' },
+      { label: 'REST API', href: '/docs/rest-api/', key: 'rest-api' },
       { label: 'MCP Server', href: '/docs/mcp-server/', key: 'mcp-server' },
-      { label: 'Agents Integration', href: '/docs/agents-integration/', key: 'agents-integration' },
+      { label: 'Agent Handoff', href: '/docs/handoff/', key: 'handoff' },
+    ],
+  },
+  {
+    title: 'Memory Kernel',
+    items: [
+      { label: 'How Memory Works', href: '/docs/how-memory-works/', key: 'how-memory-works' },
+      { label: 'FadeMem & Decay', href: '/docs/fadem/', key: 'fadem' },
+      { label: 'Episodic Scenes', href: '/docs/scenes/', key: 'scenes' },
+      { label: 'Knowledge Graph', href: '/docs/knowledge-graph/', key: 'knowledge-graph' },
     ],
   },
   {
     title: 'Platform',
     items: [
       { label: 'Architecture', href: '/docs/architecture/', key: 'architecture' },
-      { label: 'FadeMem Research', href: '/docs/research/', key: 'research' },
-    ],
-  },
-  {
-    title: 'Reference',
-    items: [
-      { label: 'API + REST + CLI', href: '/docs/reference/', key: 'reference' },
+      { label: 'Configuration', href: '/docs/configuration/', key: 'configuration' },
+      { label: 'Self-Hosting', href: '/docs/self-hosting/', key: 'self-hosting' },
+      { label: 'Research', href: '/docs/research/', key: 'research' },
     ],
   },
 ];
@@ -103,7 +119,7 @@ export const DocsLayout: React.FC<{
         <main className="docs-content">
           {children}
           <div className="docs-footer">
-            Switch agents without losing context. Stop re-explaining yourself.
+            Agents that remember. Agents that coordinate.
           </div>
         </main>
       </div>

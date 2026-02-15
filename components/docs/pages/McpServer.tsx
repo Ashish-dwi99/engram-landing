@@ -5,9 +5,9 @@ export const McpServer: React.FC = () => {
     <section>
       <h1>MCP Server</h1>
       <p>
-        Engram ships as an MCP server with 16+ tools out of the box — staged writes,
-        episodic scene search, conflict resolution, and cross-agent session handoff. The Claude Code
-        plugin adds proactive memory injection and session digest loading before the LLM sees your message.
+        Engram ships as an MCP server with 18+ tools — staged writes, episodic scene search,
+        conflict resolution, knowledge graph queries, and cross-agent session handoff. The Claude Code
+        plugin adds proactive memory injection before the LLM sees your prompt.
       </p>
 
       <h2>Automatic Installation</h2>
@@ -176,8 +176,13 @@ GEMINI_API_KEY = "your-api-key"`}</code>
             <td>Lifecycle</td>
           </tr>
           <tr>
-            <td>search_scenes / get_scene</td>
-            <td>Episodic CAST scene retrieval with masking</td>
+            <td>search_scenes</td>
+            <td>Episodic CAST scene search</td>
+            <td>Retrieval</td>
+          </tr>
+          <tr>
+            <td>get_scene</td>
+            <td>Get a specific scene by ID</td>
             <td>Retrieval</td>
           </tr>
           <tr>
@@ -195,8 +200,63 @@ GEMINI_API_KEY = "your-api-key"`}</code>
             <td>Browse handoff history across agents</td>
             <td>Handoff</td>
           </tr>
+          <tr>
+            <td>get_related_memories</td>
+            <td>Knowledge graph — find connected memories</td>
+            <td>Graph</td>
+          </tr>
+          <tr>
+            <td>get_memory_entities</td>
+            <td>Knowledge graph — list entities for a memory</td>
+            <td>Graph</td>
+          </tr>
+          <tr>
+            <td>get_entity_memories</td>
+            <td>Knowledge graph — find memories by entity</td>
+            <td>Graph</td>
+          </tr>
+          <tr>
+            <td>get_graph_stats</td>
+            <td>Knowledge graph statistics</td>
+            <td>Graph</td>
+          </tr>
+          <tr>
+            <td>get_category_tree</td>
+            <td>Browse the category hierarchy</td>
+            <td>Retrieval</td>
+          </tr>
+          <tr>
+            <td>search_by_category</td>
+            <td>Filter memories by category</td>
+            <td>Retrieval</td>
+          </tr>
+          <tr>
+            <td>fuse_memories</td>
+            <td>Combine related memories into one</td>
+            <td>Lifecycle</td>
+          </tr>
+          <tr>
+            <td>promote_memory</td>
+            <td>Promote SML → LML</td>
+            <td>Lifecycle</td>
+          </tr>
+          <tr>
+            <td>demote_memory</td>
+            <td>Demote LML → SML</td>
+            <td>Lifecycle</td>
+          </tr>
+          <tr>
+            <td>create_task</td>
+            <td>Create a task on the bridge task board</td>
+            <td>Bridge</td>
+          </tr>
         </tbody>
       </table>
+
+      <div className="callout tip">
+        For REST API access, see <a href="/docs/rest-api/">REST API</a>. For Python SDK usage,
+        see <a href="/docs/sdk/">Python SDK</a>.
+      </div>
     </section>
   );
 };

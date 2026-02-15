@@ -11,7 +11,7 @@ export const Hero: React.FC = () => {
             The Personal Memory Kernel for AI Agents
           </p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] text-gray-900 mb-6 text-center">
-            Agents that remember.
+            Memory that forgets.
             <br />
             <span
               style={{
@@ -21,12 +21,11 @@ export const Hero: React.FC = () => {
                 backgroundClip: 'text',
               }}
             >
-              Agents that coordinate.
+              Context that survives.
             </span>
           </h1>
           <p className="text-sm md:text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto mb-10 text-center">
-            The memory kernel that decays what doesn't matter, consolidates what does,
-            routes tasks to the right agent, and hands off context when you switch tools. One install — every agent in your stack shares one brain.
+            Bio-inspired memory for AI agents — Ebbinghaus decay discards what doesn't matter, episodic scenes remember when and where, and session handoff means switching tools never means starting over. One kernel shared across every agent.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <AnimatedButton className="bg-black text-white hover:bg-gray-900" glow asChild>
